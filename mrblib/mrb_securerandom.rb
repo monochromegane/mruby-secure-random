@@ -25,5 +25,11 @@ class SecureRandom
     def base64(n=nil)
       [random_bytes(n)].pack("m*").gsub("\n", "")
     end
+
+    def urlsafe_base64(n=nil, padding=false)
+      s = base64.gsub("+", "-").gsub("/", "_")
+      s.gsub!("=", "") unless padding
+      s
+    end
   end
 end
