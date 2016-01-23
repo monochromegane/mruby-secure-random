@@ -16,4 +16,8 @@ class SecureRandom
 
      raise NotImplementedError, "No random device"
   end
+
+  def self.hex(n=nil)
+    random_bytes(n).unpack("H*")[0]
+  end
 end
