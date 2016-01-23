@@ -1,4 +1,4 @@
-# mruby-secure-random   [![Build Status](https://travis-ci.org/monochromegane/mruby-secure-random.png?branch=master)](https://travis-ci.org/monochromegane/mruby-secure-random)
+# mruby-secure-random   [![Build Status](https://travis-ci.org/monochromegane/mruby-secure-random.svg?branch=master)](https://travis-ci.org/monochromegane/mruby-secure-random)
 
 SecureRandom class for mruby.
 
