@@ -31,5 +31,12 @@ class SecureRandom
       s.gsub!("=", "") unless padding
       s
     end
+
+    def uuid
+      ary = random_bytes(16).unpack("nnnnnnnn")
+      ary[3] = (ary[3] & 0x0fff) | 0x4000
+      ary[4] = (ary[4] & 0x3fff) | 0x8000
+      "%04x%04x-%04x-%04x-%04x-%04x%04x%04x" % ary
+    end
   end
 end
