@@ -21,5 +21,9 @@ class SecureRandom
     def hex(n=nil)
       random_bytes(n).unpack("H*")[0]
     end
+
+    def base64(n=nil)
+      [random_bytes(n)].pack("m*").gsub("\n", "")
+    end
   end
 end
