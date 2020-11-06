@@ -3,6 +3,12 @@ class SecureRandom
     def random_bytes(n=nil)
       n = n ? n.to_int : 16
 
+      if Module.const_defined?(:PolarSSL)
+        @@entropy ||= PolarSSL::Entropy.new
+        @@ctr_drbg ||= PolarSSL::CtrDrbg.new(@@entropy)
+        return @@ctr_drbg.random_bytes(n)
+      end
+
       begin
         File.open("/dev/urandom", 'r') {|f|
           ret = f.read(n)
